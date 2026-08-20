@@ -506,6 +506,39 @@
   .form-fallback{ font-size:13px; color:#6B7280; }
   .form-fallback a{ color:var(--navy); }
 
+  /* ===== Added: account / auth ===== */
+  .auth-box{ max-width:420px; margin:0 auto; }
+  .auth-tab-btns{ display:flex; gap:8px; margin-bottom:18px; }
+  .auth-tab-btns button{
+    flex:1; font-family:var(--mono); font-size:12.5px; letter-spacing:.5px;
+    padding:9px 10px; border:1.5px solid var(--navy); background:#fff;
+    color:var(--navy); border-radius:16px; cursor:pointer; font-weight:bold;
+  }
+  .auth-tab-btns button.active{ background:var(--navy); color:#fff; }
+  .google-btn{
+    width:100%; display:flex; align-items:center; justify-content:center; gap:10px;
+    padding:11px 16px; border:1.5px solid var(--line); border-radius:8px; background:#fff;
+    font-size:14px; font-weight:bold; color:#374151; cursor:pointer; margin-bottom:16px;
+  }
+  .google-btn:hover{ background:#F9FAFB; }
+  .auth-divider{ display:flex; align-items:center; gap:10px; color:#9CA3AF; font-size:12px; margin:6px 0 18px; }
+  .auth-divider::before, .auth-divider::after{ content:""; flex:1; height:1px; background:var(--line); }
+  .auth-form{ display:flex; flex-direction:column; gap:12px; }
+  .auth-form input{
+    padding:11px 12px; border:1.5px solid var(--line); border-radius:8px; font-size:14px; font-family:inherit;
+  }
+  .auth-error{ color:#B3261E; font-size:13px; min-height:18px; }
+  .auth-msg{ color:var(--correct); font-size:13px; min-height:18px; }
+  .account-user-card{
+    display:flex; align-items:center; gap:14px; padding:16px 18px; border:1px solid var(--line);
+    border-radius:10px; margin-bottom:24px; background:#fff;
+  }
+  .account-user-card img{ width:44px; height:44px; border-radius:50%; }
+  .account-user-card .name{ font-weight:bold; color:var(--navy-deep); }
+  .account-user-card .email{ font-size:12.5px; color:#6B7280; }
+  .account-user-card .logout-btn{ margin-left:auto; }
+  .score-history-empty{ font-size:14px; color:#6B7280; }
+  .score-history-row .rate-ok{ color:var(--correct); font-weight:bold; }
 </style>
 </head>
 <body>
@@ -514,6 +547,7 @@
   <button data-view="reading">リーディング演習</button>
   <button data-view="columns">学習コラム</button>
   <button data-view="mock">総合演習</button>
+  <button data-view="account">マイページ</button>
 </div>
 <div class="wrap" id="homeView">
 
@@ -1071,6 +1105,51 @@ Hi, I just wanted to confirm — I upgraded my membership last month, so I shoul
 
 </div>
 
+<div class="wrap hidden" id="accountView">
+
+  <header class="top">
+    <div class="title-block">
+      <div class="eyebrow">Account</div>
+      <h1>マイページ</h1>
+    </div>
+  </header>
+
+  <section id="authScreen">
+    <div class="auth-box">
+      <p class="lead" style="text-align:center;">ログインすると、演習・総合演習の点数を保存して後から確認できます。</p>
+      <button class="google-btn" id="googleSignInBtn">
+        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.9c1.7-1.57 2.7-3.88 2.7-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.9-2.26c-.8.54-1.84.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.9v2.33A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.95 10.7A5.4 5.4 0 0 1 3.67 9c0-.59.1-1.17.28-1.7V4.97H.9A9 9 0 0 0 0 9c0 1.45.35 2.83.9 4.03l3.05-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.46 3.44 1.35l2.58-2.58C13.46.89 11.43 0 9 0A9 9 0 0 0 .9 4.97l3.05 2.33C4.66 5.17 6.65 3.58 9 3.58z"/></svg>
+        Googleでログイン
+      </button>
+      <div class="auth-divider">または</div>
+      <div class="auth-tab-btns">
+        <button id="authTabLogin" class="active">ログイン</button>
+        <button id="authTabSignup">新規登録</button>
+      </div>
+      <form class="auth-form" id="emailAuthForm">
+        <input type="email" id="authEmail" placeholder="メールアドレス" autocomplete="email" required>
+        <input type="password" id="authPassword" placeholder="パスワード（6文字以上）" autocomplete="current-password" required>
+        <div class="auth-error" id="authErrorMsg"></div>
+        <button type="submit" class="btn" id="emailAuthSubmitBtn">ログイン</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="accountScreen" class="hidden">
+    <div class="account-user-card">
+      <img id="accountUserPhoto" src="" alt="" style="display:none;">
+      <div>
+        <div class="name" id="accountUserName"></div>
+        <div class="email" id="accountUserEmail"></div>
+      </div>
+      <button class="btn secondary logout-btn" id="signOutBtn">ログアウト</button>
+    </div>
+    <h3 style="font-size:15px;color:var(--navy-deep);margin-bottom:12px;">成績履歴</h3>
+    <div id="scoreHistoryArea"><p class="score-history-empty">読み込み中...</p></div>
+  </section>
+
+</div>
+
 <div class="wrap hidden" id="privacyView">
   <header class="top">
     <div class="title-block">
@@ -1088,8 +1167,20 @@ Hi, I just wanted to confirm — I upgraded my membership last month, so I shoul
 
     <section>
       <h2>本サイト内で発生するデータについて</h2>
-      <p>本サイトの演習機能・採点機能・タイマー機能などは、すべてご利用のブラウザ内（JavaScript）で完結しており、解答内容や得点、進捗状況が外部のサーバーに送信・保存されることはありません。ページを閉じたり再読み込みしたりすると、これらの情報は消去されます。</p>
-      <p>本サイトは、Cookie（クッキー）や localStorage 等のブラウザ保存機能を使用していません。</p>
+      <p>本サイトの演習機能・採点機能・タイマー機能などは、ログインせずにご利用いただく場合、すべてご利用のブラウザ内（JavaScript）で完結しており、解答内容や得点、進捗状況が外部のサーバーに送信・保存されることはありません。ページを閉じたり再読み込みしたりすると、これらの情報は消去されます。</p>
+    </section>
+
+    <section>
+      <h2>ログイン機能（マイページ）について</h2>
+      <p>「マイページ」からログインすると、演習・総合演習の点数履歴を保存し、後から確認できるようになります。この機能は Google 社が提供する Firebase（Authentication／Cloud Firestore）を利用しており、以下の情報が Firebase のサーバーに送信・保存されます。</p>
+      <ul>
+        <li>ログイン方法に応じたアカウント情報（メールアドレス、Googleアカウントの表示名・プロフィール画像など）</li>
+        <li>演習・総合演習を行った日時、得点、正答率</li>
+      </ul>
+      <p>これらの情報は、ログインしたご本人のデータのみが閲覧できるよう設定されており、第三者に公開されることはありません。ログインしない限り、これらの情報は送信されません。Firebaseにおけるデータの取り扱いについては、Google社のプライバシーポリシーが適用されます。</p>
+      <ul>
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー（外部サイト）</a></li>
+      </ul>
     </section>
 
     <section>
@@ -4116,6 +4207,14 @@ function showResult(){
   document.getElementById('scoreRate').textContent = `正答率 ${rate}%`;
   headerChip.textContent = `${PATTERNS[currentPatternKey].label}：正答率 ${rate}%`;
 
+  if(window.firebaseSaveScore){
+    window.firebaseSaveScore({
+      type:'quiz',
+      label:PATTERNS[currentPatternKey].label,
+      correct:correctCount, total, rate
+    });
+  }
+
   const reviewList = document.getElementById('reviewList');
   reviewList.innerHTML = '';
   const letters = ['A','B','C','D'];
@@ -4893,6 +4992,14 @@ function finishMockTest(){
   document.getElementById('mockScoreRate').textContent = `正答率 ${rate}%`;
   mockChip.textContent = `総合演習：正答率 ${rate}%`;
 
+  if(window.firebaseSaveScore){
+    window.firebaseSaveScore({
+      type:'mock',
+      label:'総合演習（ミニ模試）',
+      correct, total, rate
+    });
+  }
+
   const used = MOCK_TEST.timeLimitSec - mockTimeLeft;
   document.getElementById('mockTimeUsed').textContent = `解答時間：${formatTime(Math.max(used,0))}`;
 
@@ -4935,7 +5042,7 @@ document.getElementById('mockHomeBtn').addEventListener('click', ()=>{
 <script>
 var VIEW_IDS = {
   home:'homeView', reading:'readingView', columns:'columnsView', mock:'mockView',
-  privacy:'privacyView', contact:'contactView', about:'aboutView'
+  account:'accountView', privacy:'privacyView', contact:'contactView', about:'aboutView'
 };
 function switchView(view){
   if(!VIEW_IDS[view]) return;
@@ -4955,6 +5062,139 @@ document.addEventListener('click', function(e){
   if(!view) return;
   switchView(view);
 });
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+  import {
+    getAuth, GoogleAuthProvider, signInWithPopup,
+    createUserWithEmailAndPassword, signInWithEmailAndPassword,
+    signOut, onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+  import {
+    getFirestore, collection, addDoc, query, where, orderBy, limit, getDocs, serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDl9v8n6HvyAVo5mSw_h0o_-C3JgAE8eUY",
+    authDomain: "toeic-practice-online.firebaseapp.com",
+    projectId: "toeic-practice-online",
+    storageBucket: "toeic-practice-online.firebasestorage.app",
+    messagingSenderId: "1014013298778",
+    appId: "1:1014013298778:web:a55a6a2c345711f44bf063"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const authScreen = document.getElementById('authScreen');
+  const accountScreen = document.getElementById('accountScreen');
+  const authErrorMsg = document.getElementById('authErrorMsg');
+
+  function showAuthError(err){
+    const map = {
+      'auth/invalid-email':'メールアドレスの形式が正しくありません。',
+      'auth/user-not-found':'アカウントが見つかりません。',
+      'auth/wrong-password':'パスワードが正しくありません。',
+      'auth/invalid-credential':'メールアドレスまたはパスワードが正しくありません。',
+      'auth/email-already-in-use':'このメールアドレスは既に登録されています。',
+      'auth/weak-password':'パスワードは6文字以上にしてください。',
+      'auth/popup-closed-by-user':''
+    };
+    authErrorMsg.textContent = (err.code in map) ? map[err.code] : ('エラーが発生しました：' + err.message);
+  }
+
+  document.getElementById('googleSignInBtn').addEventListener('click', ()=>{
+    authErrorMsg.textContent = '';
+    signInWithPopup(auth, new GoogleAuthProvider()).catch(showAuthError);
+  });
+
+  let authMode = 'login';
+  const authTabLogin = document.getElementById('authTabLogin');
+  const authTabSignup = document.getElementById('authTabSignup');
+  const emailAuthSubmitBtn = document.getElementById('emailAuthSubmitBtn');
+
+  function setAuthMode(mode){
+    authMode = mode;
+    authErrorMsg.textContent = '';
+    authTabLogin.classList.toggle('active', mode==='login');
+    authTabSignup.classList.toggle('active', mode==='signup');
+    emailAuthSubmitBtn.textContent = mode==='login' ? 'ログイン' : '新規登録';
+  }
+  authTabLogin.addEventListener('click', ()=>setAuthMode('login'));
+  authTabSignup.addEventListener('click', ()=>setAuthMode('signup'));
+
+  document.getElementById('emailAuthForm').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    authErrorMsg.textContent = '';
+    const email = document.getElementById('authEmail').value.trim();
+    const password = document.getElementById('authPassword').value;
+    const action = authMode==='login' ? signInWithEmailAndPassword : createUserWithEmailAndPassword;
+    action(auth, email, password).catch(showAuthError);
+  });
+
+  document.getElementById('signOutBtn').addEventListener('click', ()=>{ signOut(auth); });
+
+  async function renderScoreHistory(uid){
+    const area = document.getElementById('scoreHistoryArea');
+    area.innerHTML = '<p class="score-history-empty">読み込み中...</p>';
+    try{
+      const q = query(collection(db,'scores'), where('uid','==',uid), orderBy('createdAt','desc'), limit(50));
+      const snap = await getDocs(q);
+      if(snap.empty){
+        area.innerHTML = '<p class="score-history-empty">まだ記録がありません。演習・総合演習を解くとここに表示されます。</p>';
+        return;
+      }
+      const rows = [];
+      snap.forEach(docSnap=>{
+        const d = docSnap.data();
+        const dt = d.createdAt && d.createdAt.toDate ? d.createdAt.toDate() : null;
+        const dateStr = dt ? dt.toLocaleString('ja-JP') : '';
+        rows.push(`<tr class="score-history-row">
+          <td>${dateStr}</td>
+          <td>${d.label != null ? d.label : ''}</td>
+          <td>${d.correct}/${d.total}</td>
+          <td class="${d.rate>=70?'rate-ok':''}">${d.rate}%</td>
+        </tr>`);
+      });
+      area.innerHTML = `<table class="info-table"><thead><tr><th>日時</th><th>演習</th><th>得点</th><th>正答率</th></tr></thead><tbody>${rows.join('')}</tbody></table>`;
+    }catch(err){
+      area.innerHTML = '<p class="score-history-empty">読み込みに失敗しました。</p>';
+      console.error(err);
+    }
+  }
+
+  onAuthStateChanged(auth, (user)=>{
+    if(user){
+      authScreen.classList.add('hidden');
+      accountScreen.classList.remove('hidden');
+      document.getElementById('accountUserName').textContent = user.displayName || 'ログイン中';
+      document.getElementById('accountUserEmail').textContent = user.email || '';
+      const photo = document.getElementById('accountUserPhoto');
+      if(user.photoURL){ photo.src = user.photoURL; photo.style.display=''; }
+      else{ photo.style.display='none'; }
+      renderScoreHistory(user.uid);
+    }else{
+      authScreen.classList.remove('hidden');
+      accountScreen.classList.add('hidden');
+      document.getElementById('emailAuthForm').reset();
+    }
+  });
+
+  window.firebaseSaveScore = function(data){
+    const user = auth.currentUser;
+    if(!user) return;
+    addDoc(collection(db,'scores'), {
+      uid: user.uid,
+      type: data.type,
+      label: data.label,
+      correct: data.correct,
+      total: data.total,
+      rate: data.rate,
+      createdAt: serverTimestamp()
+    }).catch(err=>console.error('score save failed', err));
+  };
 </script>
 </body>
 </html>
