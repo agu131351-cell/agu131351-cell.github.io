@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TOEIC Part5-7 パターン別演習</title>
+<title>TOEIC Reading 学習ポータル｜Part5-7 パターン別演習</title>
+<meta name="description" content="TOEIC L&Rリーディング（Part5〜7）を無料で対策できる学習サイト。パターン別演習190問、解法コラム、41問の総合模試、成績の記録まで対応。大学生・社会人のスコアアップを支援します。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TOEIC Reading 学習ポータル">
+<meta property="og:title" content="TOEIC Reading 学習ポータル｜Part5-7 パターン別演習">
+<meta property="og:description" content="TOEIC L&Rリーディング（Part5〜7）を無料で対策できる学習サイト。パターン別演習190問、解法コラム、41問の総合模試、成績の記録まで対応。">
+<meta property="og:url" content="https://agu131351-cell.github.io/TOEIC_Reading_Portal/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TOEIC Reading 学習ポータル">
+<meta name="twitter:description" content="TOEIC L&Rリーディング対策の無料学習サイト。パターン別演習・解法コラム・総合模試。">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7345126263082773"
      crossorigin="anonymous"></script>
 <style>
@@ -369,10 +378,17 @@
   /* ===== Added: site navigation ===== */
   .site-nav{
     max-width:900px; margin:14px auto 0; padding:12px 16px;
-    display:flex; gap:8px; justify-content:center; flex-wrap:wrap;
-    background:#fff; border-radius:999px; box-shadow:0 8px 24px rgba(30,58,138,0.10);
+    display:flex; align-items:center; gap:8px 14px; justify-content:center; flex-wrap:wrap;
+    background:#fff; border-radius:24px; box-shadow:0 8px 24px rgba(30,58,138,0.10);
     position:sticky; top:10px; z-index:20;
   }
+  .site-nav-brand{
+    font-family:var(--mono); font-weight:bold; font-size:13px; color:var(--navy-deep);
+    letter-spacing:.3px; cursor:pointer; white-space:nowrap; margin-right:auto;
+    display:flex; align-items:baseline; gap:5px;
+  }
+  .site-nav-brand span{ color:var(--navy); font-weight:normal; }
+  .site-nav-links{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
   .site-nav button{
     font-family:var(--mono); font-size:12.5px; letter-spacing:1px;
     padding:10px 20px; border:1.5px solid transparent; background:transparent;
@@ -503,6 +519,24 @@
 
 
   /* ===== Added: Home screen ===== */
+  .daily-card{
+    background:#fff; border:1px solid var(--line); border-radius:18px;
+    padding:24px 24px 26px; margin-bottom:28px;
+  }
+  .daily-card-head{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    gap:8px; margin-bottom:16px;
+  }
+  .daily-card-title{
+    font-family:var(--mono); font-size:12px; letter-spacing:2px; color:var(--navy);
+    text-transform:uppercase; display:flex; align-items:center; gap:8px;
+  }
+  .daily-card-title .dot{ width:8px; height:8px; border-radius:50%; background:var(--brass); display:inline-block; }
+  .daily-card-date{ font-family:var(--mono); font-size:12px; color:#9CA3AF; }
+  .daily-card .qtext{ font-size:15.5px; font-weight:bold; color:var(--navy-deep); margin-bottom:16px; }
+  .daily-card .choices{ margin-bottom:4px; }
+  .daily-card .explain-box{ margin-top:16px; }
+
   .home-grid{ display:grid; grid-template-columns:1fr; gap:16px; margin-top:22px; }
   @media(min-width:680px){ .home-grid{ grid-template-columns:1fr 1fr 1fr; } }
   .home-card{
@@ -626,11 +660,14 @@
 </head>
 <body>
 <div class="site-nav" id="siteNav">
-  <button data-view="home" class="active">ホーム</button>
-  <button data-view="reading">リーディング演習</button>
-  <button data-view="columns">学習コラム</button>
-  <button data-view="mock">総合演習</button>
-  <button data-view="account">マイページ</button>
+  <div class="site-nav-brand" data-go="home">TOEIC Reading<span>学習ポータル</span></div>
+  <div class="site-nav-links">
+    <button data-view="home" class="active">ホーム</button>
+    <button data-view="reading">リーディング演習</button>
+    <button data-view="columns">学習コラム</button>
+    <button data-view="mock">総合演習</button>
+    <button data-view="account">マイページ</button>
+  </div>
 </div>
 <div class="wrap" id="homeView">
 
@@ -655,6 +692,16 @@
         <div class="art-check">✓ 正解</div>
       </div>
     </div>
+  </div>
+
+  <div class="daily-card">
+    <div class="daily-card-head">
+      <div class="daily-card-title"><span class="dot"></span>今日の1問</div>
+      <div class="daily-card-date" id="dailyDate"></div>
+    </div>
+    <p class="qtext" id="dailyQtext"></p>
+    <div class="choices" id="dailyChoicesArea"></div>
+    <div class="explain-box hidden" id="dailyExplainBox"></div>
   </div>
 
   <div class="home-grid">
@@ -4445,6 +4492,46 @@ function showResult(){
 
 buildPartTabs();
 buildMenu();
+
+(function(){
+  var dailyPool = [];
+  ['A','B','C','D'].forEach(function(k){
+    PATTERNS[k].items.forEach(function(it){ dailyPool.push(it); });
+  });
+  var now = new Date();
+  var dayIndex = Math.floor(now.getTime() / 86400000);
+  var q = dailyPool[dayIndex % dailyPool.length];
+  var lettersD = ['A','B','C','D'];
+
+  var dateEl = document.getElementById('dailyDate');
+  var qtextEl = document.getElementById('dailyQtext');
+  var choicesArea = document.getElementById('dailyChoicesArea');
+  var explainBox = document.getElementById('dailyExplainBox');
+  if(!dateEl || !qtextEl || !choicesArea) return;
+
+  dateEl.textContent = now.toLocaleDateString('ja-JP', {year:'numeric', month:'long', day:'numeric'});
+  qtextEl.textContent = q.q;
+
+  var answered = false;
+  q.c.forEach(function(choice, idx){
+    var b = document.createElement('button');
+    b.className = 'choice-btn';
+    b.innerHTML = '<span class="letter">' + lettersD[idx] + '</span><span>' + choice + '</span>';
+    b.addEventListener('click', function(){
+      if(answered) return;
+      answered = true;
+      var btns = choicesArea.querySelectorAll('.choice-btn');
+      btns.forEach(function(bt, i){
+        bt.disabled = true;
+        if(i === q.a) bt.classList.add('correct');
+      });
+      if(idx !== q.a) b.classList.add('wrong');
+      explainBox.innerHTML = '<b>' + (idx === q.a ? '正解！' : '不正解') + '</b>　' + q.ex;
+      explainBox.classList.remove('hidden');
+    });
+    choicesArea.appendChild(b);
+  });
+})();
 </script>
 
 <script>
