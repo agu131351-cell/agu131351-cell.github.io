@@ -691,7 +691,7 @@
     </div>
     <p class="qtext" id="dailyQtext"></p>
     <div class="choices" id="dailyChoicesArea"></div>
-    <div class="explain-box hidden" id="dailyExplainBox"></div>
+    <div class="explain-box" id="dailyExplainBox"></div>
   </div>
 
   <div class="home-grid">
@@ -4517,7 +4517,7 @@ buildMenu();
       });
       if(idx !== q.a) b.classList.add('wrong');
       explainBox.innerHTML = '<b>' + (idx === q.a ? '正解！' : '不正解') + '</b>　' + q.ex;
-      explainBox.classList.remove('hidden');
+      explainBox.classList.add('show');
     });
     choicesArea.appendChild(b);
   });
