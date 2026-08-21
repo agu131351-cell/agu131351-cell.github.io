@@ -649,6 +649,16 @@
   .account-user-card .logout-btn{ margin-left:auto; }
   .score-history-empty{ font-size:14px; color:#6B7280; }
   .score-history-row .rate-ok{ color:var(--correct); font-weight:bold; }
+  .achv-wrap{ margin-bottom:28px; padding:20px 22px; background:#fff; border:1px solid var(--line); border-radius:16px; }
+  .achv-headline{ display:flex; align-items:baseline; gap:10px; margin-bottom:16px; flex-wrap:wrap; }
+  .achv-headline .achv-pct{ font-family:var(--mono); font-size:32px; font-weight:bold; color:var(--navy-deep); }
+  .achv-headline .achv-sub{ font-size:13px; color:#6B7280; }
+  .achv-bar{ display:flex; width:100%; height:26px; border-radius:13px; overflow:hidden; background:var(--line); }
+  .achv-bar .achv-seg-correct{ background:var(--navy); }
+  .achv-bar .achv-seg-wrong{ background:var(--brass); }
+  .achv-legend{ display:flex; gap:24px; margin-top:14px; flex-wrap:wrap; }
+  .achv-legend-item{ display:flex; align-items:center; gap:8px; font-size:13.5px; color:#374151; }
+  .achv-legend-swatch{ width:12px; height:12px; border-radius:3px; flex-shrink:0; }
 </style>
 </head>
 <body>
@@ -1396,6 +1406,10 @@ Hi, I just wanted to confirm — I upgraded my membership last month, so I shoul
       </div>
       <button class="btn secondary logout-btn" id="signOutBtn">ログアウト</button>
     </div>
+
+    <h3 style="font-size:15px;color:var(--navy-deep);margin-bottom:12px;">達成状況（リーディング演習）</h3>
+    <div id="achievementArea" class="achv-wrap"><p class="score-history-empty">読み込み中...</p></div>
+
     <h3 style="font-size:15px;color:var(--navy-deep);margin-bottom:12px;">成績履歴</h3>
     <div id="scoreHistoryArea"><p class="score-history-empty">読み込み中...</p></div>
   </section>
@@ -5434,19 +5448,51 @@ document.addEventListener('click', function(e){
 
   document.getElementById('signOutBtn').addEventListener('click', ()=>{ signOut(auth); });
 
+  function renderAchievement(area, correct, total){
+    if(!area) return;
+    if(total === 0){
+      area.innerHTML = '<p class="score-history-empty">まだリーディング演習の記録がありません（総合演習は含まれません）。演習を解くとここに達成状況が表示されます。</p>';
+      return;
+    }
+    const correctPct = Math.round(correct/total*100);
+    const wrongPct = 100 - correctPct;
+    const wrongCount = total - correct;
+    area.innerHTML = `
+      <div class="achv-headline">
+        <span class="achv-pct">${correctPct}%</span>
+        <span class="achv-sub">全${total}問中 ${correct}問正解（リーディング演習のみ集計・総合演習は含みません）</span>
+      </div>
+      <div class="achv-bar">
+        <div class="achv-seg-correct" style="width:${correctPct}%"></div>
+        <div class="achv-seg-wrong" style="width:${wrongPct}%"></div>
+      </div>
+      <div class="achv-legend">
+        <div class="achv-legend-item"><span class="achv-legend-swatch" style="background:var(--navy)"></span>正解　${correct}問（${correctPct}%）</div>
+        <div class="achv-legend-item"><span class="achv-legend-swatch" style="background:var(--brass)"></span>不正解　${wrongCount}問（${wrongPct}%）</div>
+      </div>
+    `;
+  }
+
   async function renderScoreHistory(uid){
     const area = document.getElementById('scoreHistoryArea');
+    const achvArea = document.getElementById('achievementArea');
     area.innerHTML = '<p class="score-history-empty">読み込み中...</p>';
     try{
       const q = query(collection(db,'scores'), where('uid','==',uid), orderBy('createdAt','desc'), limit(50));
       const snap = await getDocs(q);
       if(snap.empty){
         area.innerHTML = '<p class="score-history-empty">まだ記録がありません。演習・総合演習を解くとここに表示されます。</p>';
+        renderAchievement(achvArea, 0, 0);
         return;
       }
       const rows = [];
+      let quizCorrect = 0, quizTotal = 0;
       snap.forEach(docSnap=>{
         const d = docSnap.data();
+        if(d.type === 'quiz'){
+          quizCorrect += d.correct;
+          quizTotal += d.total;
+        }
         const dt = d.createdAt && d.createdAt.toDate ? d.createdAt.toDate() : null;
         const dateStr = dt ? dt.toLocaleString('ja-JP') : '';
         rows.push(`<tr class="score-history-row">
@@ -5457,8 +5503,10 @@ document.addEventListener('click', function(e){
         </tr>`);
       });
       area.innerHTML = `<table class="info-table"><thead><tr><th>日時</th><th>演習</th><th>得点</th><th>正答率</th></tr></thead><tbody>${rows.join('')}</tbody></table>`;
+      renderAchievement(achvArea, quizCorrect, quizTotal);
     }catch(err){
       area.innerHTML = '<p class="score-history-empty">読み込みに失敗しました。</p>';
+      if(achvArea) achvArea.innerHTML = '<p class="score-history-empty">読み込みに失敗しました。</p>';
       console.error(err);
     }
   }
