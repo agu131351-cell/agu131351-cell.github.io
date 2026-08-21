@@ -382,13 +382,6 @@
     background:#fff; border-radius:24px; box-shadow:0 8px 24px rgba(30,58,138,0.10);
     position:sticky; top:10px; z-index:20;
   }
-  .site-nav-brand{
-    font-family:var(--mono); font-weight:bold; font-size:13px; color:var(--navy-deep);
-    letter-spacing:.3px; cursor:pointer; white-space:nowrap; margin-right:auto;
-    display:flex; align-items:baseline; gap:5px;
-  }
-  .site-nav-brand span{ color:var(--navy); font-weight:normal; }
-  .site-nav-links{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
   .site-nav button{
     font-family:var(--mono); font-size:12.5px; letter-spacing:1px;
     padding:10px 20px; border:1.5px solid transparent; background:transparent;
@@ -660,14 +653,11 @@
 </head>
 <body>
 <div class="site-nav" id="siteNav">
-  <div class="site-nav-brand" data-go="home">TOEIC Reading<span>学習ポータル</span></div>
-  <div class="site-nav-links">
-    <button data-view="home" class="active">ホーム</button>
-    <button data-view="reading">リーディング演習</button>
-    <button data-view="columns">学習コラム</button>
-    <button data-view="mock">総合演習</button>
-    <button data-view="account">マイページ</button>
-  </div>
+  <button data-view="home" class="active">ホーム</button>
+  <button data-view="reading">リーディング演習</button>
+  <button data-view="columns">学習コラム</button>
+  <button data-view="mock">総合演習</button>
+  <button data-view="account">マイページ</button>
 </div>
 <div class="wrap" id="homeView">
 
