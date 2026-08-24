@@ -688,6 +688,23 @@
   .ad-card .ad-copy{ font-size:13.5px; color:#374151; margin:0 0 14px; }
   .ad-card .ad-banners{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:center; }
   .ad-card .ad-banners img{ max-width:100%; height:auto; border-radius:6px; }
+
+  .mat-section-label{
+    font-family:var(--mono); font-size:12px; letter-spacing:2px; color:var(--navy);
+    margin:32px 0 14px; text-transform:uppercase; border-left:4px solid var(--brass);
+    padding-left:8px;
+  }
+  .mat-section-label:first-of-type{ margin-top:0; }
+  .mat-card{
+    position:relative; background:#fff; border:1px solid var(--line); border-radius:16px;
+    padding:22px 24px; margin-bottom:16px;
+  }
+  .mat-card .ad-label{
+    display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:1.5px; color:#9CA3AF;
+    border:1px solid var(--line); border-radius:10px; padding:2px 8px; margin-bottom:12px;
+  }
+  .mat-card h3{ margin:0 0 10px; font-size:16.5px; color:var(--navy-deep); }
+  .mat-card p{ margin:0 0 16px; font-size:14px; color:#374151; }
 </style>
 </head>
 <body>
@@ -696,6 +713,7 @@
   <button data-view="reading">リーディング演習</button>
   <button data-view="columns">学習コラム</button>
   <button data-view="mock">総合演習</button>
+  <button data-view="materials">おすすめ教材</button>
   <button data-view="account">マイページ</button>
 </div>
 <div class="wrap" id="homeView">
@@ -1419,6 +1437,52 @@ Hi, I just wanted to confirm — I upgraded my membership last month, so I shoul
       </div>
     </div>
   </section>
+
+</div>
+
+<div class="wrap hidden" id="materialsView">
+
+  <header class="top">
+    <div class="title-block">
+      <div class="eyebrow">Recommended</div>
+      <h1>おすすめ教材</h1>
+    </div>
+  </header>
+
+  <p class="lead">演習・コラムで身につけた解き方を、実際の教材でさらに定着させましょう。当サイトで実際に良いと感じたものだけを紹介しています。</p>
+
+  <div class="mat-section-label">単語帳・参考書</div>
+
+  <div class="mat-card">
+    <span class="ad-label">PR</span>
+    <h3>[増補改訂版] TOEIC L&amp;R TEST 出る単特急 金のフレーズ</h3>
+    <p>TOEIC対策の定番中の定番といえる単語帳。頻出語彙をスコア帯別に効率よく学べるので、リーディング演習と並行して進めるのにおすすめです。</p>
+    <a class="btn" href="https://amzn.to/4qBv5ev" target="_blank" rel="nofollow noopener sponsored">Amazonで見る</a>
+  </div>
+
+  <div class="mat-card">
+    <span class="ad-label">PR</span>
+    <h3>公式TOEIC Listening &amp; Reading 問題集 12</h3>
+    <p>本番と同じ形式・難易度で演習できる、IIBC公式の問題集。総合演習で実力を確認した後、さらに実戦形式の演習量を積みたい方に向いています。</p>
+    <a class="btn" href="https://amzn.to/4hLiT8t" target="_blank" rel="nofollow noopener sponsored">Amazonで見る</a>
+  </div>
+
+  <div class="mat-section-label">学習アプリ・サービス</div>
+
+  <div class="ad-card" style="margin-top:0;">
+    <span class="ad-label">PR</span>
+    <p class="ad-copy">AIでの弱点分析や、ビジネス英語まで見据えて学習を続けたい方へ</p>
+    <div class="ad-banners">
+      <a href="https://px.a8.net/svt/ejp?a8mat=4BAB1E+G8NOTU+54Z6+626XT" rel="nofollow noopener sponsored" target="_blank">
+        <img border="0" width="250" height="250" alt="" src="https://www23.a8.net/svt/bgt?aid=260821346982&wid=001&eno=01&mid=s00000023973001018000&mc=1">
+      </a>
+      <a href="https://px.a8.net/svt/ejp?a8mat=4BAB1F+N7XDE+3AQG+TUO9T" rel="nofollow noopener sponsored" target="_blank">
+        <img border="0" width="468" height="60" alt="" src="https://www27.a8.net/svt/bgt?aid=260821347039&wid=001&eno=01&mid=s00000015388005014000&mc=1">
+      </a>
+    </div>
+    <img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=4BAB1E+G8NOTU+54Z6+626XT" alt="" style="position:absolute;">
+    <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4BAB1F+N7XDE+3AQG+TUO9T" alt="" style="position:absolute;">
+  </div>
 
 </div>
 
@@ -5436,7 +5500,7 @@ document.getElementById('mockHomeBtn').addEventListener('click', ()=>{
 <script>
 var VIEW_IDS = {
   home:'homeView', reading:'readingView', columns:'columnsView', mock:'mockView',
-  account:'accountView', privacy:'privacyView', contact:'contactView', about:'aboutView'
+  materials:'materialsView', account:'accountView', privacy:'privacyView', contact:'contactView', about:'aboutView'
 };
 function switchView(view){
   if(!VIEW_IDS[view]) return;
