@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC Part6 文選択問題の解き方｜1文まるごと選ぶコツ | TOEIC Reading 学習ポータル</title>
+<meta name="description" content="TOEIC Part6の文選択問題を、指示語・因果関係・文書の目的の3つの観点からチェックする方法を解説します。">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="TOEIC Reading 学習ポータル">
+<meta property="og:title" content="TOEIC Part6 文選択問題の解き方｜1文まるごと選ぶコツ | TOEIC Reading 学習ポータル">
+<meta property="og:description" content="TOEIC Part6の文選択問題を、指示語・因果関係・文書の目的の3つの観点からチェックする方法を解説します。">
+<meta property="og:url" content="https://agu131351-cell.github.io/columns/sentence-insertion.html">
+<meta property="og:image" content="https://agu131351-cell.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://agu131351-cell.github.io/columns/sentence-insertion.html">
+<style>
+  *{box-sizing:border-box;}
+  :root{
+    --paper:#F4F7FC; --ink:#1E293B; --navy:#2563EB; --navy-deep:#1E3A8A;
+    --brass:#F5A623; --brass-soft:#FEF3C7; --correct:#2F6B3E; --correct-bg:#E7F2E5;
+    --line:#DDE5F2; --mono:'Courier New',Courier,monospace;
+  }
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.75;
+  }
+  .wrap{ max-width:760px; margin:0 auto; padding:32px 20px 80px; }
+  .back-link{
+    display:inline-block; font-size:13.5px; color:var(--navy); text-decoration:none;
+    margin-bottom:22px; font-weight:bold;
+  }
+  .back-link:hover{ text-decoration:underline; }
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:2px; color:var(--navy);
+    text-transform:uppercase; margin-bottom:10px;
+  }
+  h1{ font-size:28px; color:var(--navy-deep); margin:0 0 14px; line-height:1.4; }
+  .lead{ font-size:15.5px; color:#4B5563; margin:0 0 30px; }
+  article h2{
+    font-size:19px; color:var(--navy-deep); margin:36px 0 14px;
+    border-left:4px solid var(--brass); padding-left:10px;
+  }
+  article p{ font-size:15px; color:#374151; margin:0 0 14px; }
+  article ol, article ul{ margin:0 0 16px; padding-left:22px; }
+  article li{ font-size:15px; color:#374151; margin-bottom:8px; }
+  article b{ color:var(--navy-deep); }
+  .step{
+    display:flex; gap:14px; margin-bottom:18px; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 18px;
+  }
+  .step .num{
+    flex-shrink:0; width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:bold;
+  }
+  .step .body p{ margin:0; }
+  .step .body b{ display:block; margin-bottom:4px; font-size:15px; }
+  table.ref-table{ width:100%; border-collapse:collapse; margin:0 0 18px; font-size:14px; }
+  table.ref-table th, table.ref-table td{ border:1px solid var(--line); padding:9px 12px; text-align:left; }
+  table.ref-table th{ background:var(--brass-soft); color:var(--navy-deep); font-family:var(--mono); font-size:12px; }
+  .pitfall{
+    margin:0 0 24px; padding:14px 16px; background:#FFFBEA; border-left:4px solid var(--brass);
+    font-size:14.5px; color:#5B4419;
+  }
+  .pitfall b{ color:#8A6416; }
+  .example{
+    background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px 22px; margin-bottom:20px;
+  }
+  .example .ex-label{
+    font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--navy);
+    text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .example .qtext{ font-size:15.5px; font-weight:bold; color:var(--navy-deep); margin-bottom:14px; }
+  .example ol.choices{ list-style:none; margin:0 0 6px; padding:0; display:flex; flex-direction:column; gap:8px; }
+  .example ol.choices li{ font-size:14.5px; color:#374151; }
+  .example ol.choices li b{ font-family:var(--mono); color:var(--brass); margin-right:8px; }
+  .example details{ margin-top:12px; }
+  .example summary{
+    cursor:pointer; font-family:var(--mono); font-size:13px; color:#fff; background:var(--navy);
+    display:inline-block; padding:8px 18px; border-radius:20px; font-weight:bold;
+  }
+  .example .answer{
+    margin-top:12px; padding:14px 16px; background:var(--correct-bg); border-left:4px solid var(--correct);
+    font-size:14.5px; color:#1f3d26;
+  }
+  .answer .tag{ font-family:var(--mono); font-weight:bold; color:var(--correct); display:block; margin-bottom:6px; }
+  .cta{
+    margin-top:40px; padding:26px 24px; background:var(--navy); border-radius:16px; text-align:center;
+  }
+  .cta p{ color:#fff; font-size:15px; margin:0 0 16px; }
+  .cta a{
+    display:inline-block; background:#fff; color:var(--navy); font-weight:bold; text-decoration:none;
+    padding:12px 26px; border-radius:10px; font-size:14.5px;
+  }
+  .related{ margin-top:32px; }
+  .related h2{ font-size:16px; }
+  .related ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+  .related a{ color:var(--navy); font-size:14.5px; text-decoration:none; font-weight:bold; }
+  .related a:hover{ text-decoration:underline; }
+  footer{ margin-top:50px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:#9CA3AF; }
+  footer a{ color:var(--navy); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="../index.html">← TOEIC Reading 学習ポータルに戻る</a>
+  <div class="eyebrow">Part 6 ／ Pattern F</div>
+  <h1>文選択問題 ― 1文まるごと選ぶ</h1>
+  <p class="lead">文選択問題は「文法的に正しいか」ではなく「話の流れとして自然かどうか」で選びます。以下の3ステップで順番にチェックしましょう。</p>
+  <article>
+<h2>この問題タイプとは</h2>
+<p>選択肢の4つの文は、どれも単体で見れば文法的に正しい文です。正解を決めるのは文法ではなく、<b>前後の文とのつながり</b>だけです。</p>
+<h2>解法の3ステップ</h2>
+<div class="step"><div class="num">1</div><div class="body"><b>直前の文とのつながりを確認する</b><p>直前の文の主語・話題を受ける指示語（it, this, that, these）があるかを確認します。</p></div></div>
+<div class="step"><div class="num">2</div><div class="body"><b>直後の文とのつながりを確認する</b><p>時系列・因果関係として、選んだ文が直後の文へスムーズにつながるかを確認します。</p></div></div>
+<div class="step"><div class="num">3</div><div class="body"><b>文書の目的と矛盾していないか消去法で確認する</b><p>お詫びの文書なのに宣伝文が入っている、など文書全体の目的とズレる選択肢を消していきます。</p></div></div>
+<div class="pitfall"><b>つまずきやすいポイント：</b>選んだ文を実際にあてはめて読み、前後の代名詞・指示語（this, that, it, such ~ など）や接続表現が不自然につながっていないかを確認するのが最終チェックとして有効です。</div>
+<h2>例題で確認しよう</h2>
+<div class="example"><span class="ex-label">例題 1</span><div class="clm-passage" style="background:#fff;border:1px solid var(--line);padding:14px 16px;margin-bottom:14px;font-size:14px;color:#374151;white-space:pre-wrap;">Thank you for your recent purchase from GadgetHub. Unfortunately, the item you ordered is currently on backorder. ------- We expect the new shipment to arrive within 10 business days, at which point your order will be shipped immediately.</div><div class="qtext">空所に入る最も適切な文を選びなさい。</div><ol class="choices"><li><b>(A)</b> We sincerely apologize for this delay and any inconvenience it may cause.</li><li><b>(B)</b> Our store hours are Monday through Saturday, 9 a.m. to 6 p.m.</li><li><b>(C)</b> Thank you for shopping with us during our anniversary sale.</li><li><b>(D)</b> Please remember to update your billing address if it has changed.</li></ol><details><summary>解答・解説を見る</summary><div class="answer"><span class="tag">正解：(A)</span>直前で商品が欠品中（backorder）であることを伝え、直後で入荷見込みの説明が続きます。その間に、遅延に対するお詫びの一文が入ると流れが自然につながります。(B)(C)(D) はいずれも文書の目的（欠品のお詫びと今後の案内）と無関係です。</div></details></div>
+<div class="pitfall" style="background:#EEF3FF;border-left-color:var(--navy);color:#1E3A5F;"><b style="color:var(--navy-deep);">解答までの思考プロセス：</b>直前の文で「欠品中」というマイナスの情報が伝えられ、直後の文で「10営業日以内に入荷予定」という前向きな情報が続きます。この2つの文の間に、読み手の不満を和らげるお詫びの一文（A）を挟むと、文書全体のトーンが自然になります。(B)(C)(D)は内容自体は正しい英文ですが、この文書の流れの中では唐突で、話題が逸れてしまいます。</div>
+<h2>まとめ</h2>
+<p>文選択問題は、文法チェックではなく「文脈の自然さ」を見る問題です。選んだ文を実際に当てはめて音読するつもりで確認すると、不自然さに気づきやすくなります。</p>
+  </article>
+
+  <div class="cta">
+    <p>実際に問題を解いて、この解き方を試してみましょう。</p>
+    <a href="../index.html#columns">学習コラム一覧に戻る →</a>
+  </div>
+
+  <footer>
+    <a href="../index.html">TOEIC Reading 学習ポータル</a> ｜ Part5〜7のパターン別演習・解法コラム・模擬テストを無料で提供しています。
+  </footer>
+</div>
+</body>
+</html>

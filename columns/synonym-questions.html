@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC Part7 同義語問題の解き方｜文脈で判断する多義語対策 | TOEIC Reading 学習ポータル</title>
+<meta name="description" content="TOEIC Part7の同義語問題を、辞書的な意味ではなく文脈上の意味から解く方法を解説します。">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="TOEIC Reading 学習ポータル">
+<meta property="og:title" content="TOEIC Part7 同義語問題の解き方｜文脈で判断する多義語対策 | TOEIC Reading 学習ポータル">
+<meta property="og:description" content="TOEIC Part7の同義語問題を、辞書的な意味ではなく文脈上の意味から解く方法を解説します。">
+<meta property="og:url" content="https://agu131351-cell.github.io/columns/synonym-questions.html">
+<meta property="og:image" content="https://agu131351-cell.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://agu131351-cell.github.io/columns/synonym-questions.html">
+<style>
+  *{box-sizing:border-box;}
+  :root{
+    --paper:#F4F7FC; --ink:#1E293B; --navy:#2563EB; --navy-deep:#1E3A8A;
+    --brass:#F5A623; --brass-soft:#FEF3C7; --correct:#2F6B3E; --correct-bg:#E7F2E5;
+    --line:#DDE5F2; --mono:'Courier New',Courier,monospace;
+  }
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.75;
+  }
+  .wrap{ max-width:760px; margin:0 auto; padding:32px 20px 80px; }
+  .back-link{
+    display:inline-block; font-size:13.5px; color:var(--navy); text-decoration:none;
+    margin-bottom:22px; font-weight:bold;
+  }
+  .back-link:hover{ text-decoration:underline; }
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:2px; color:var(--navy);
+    text-transform:uppercase; margin-bottom:10px;
+  }
+  h1{ font-size:28px; color:var(--navy-deep); margin:0 0 14px; line-height:1.4; }
+  .lead{ font-size:15.5px; color:#4B5563; margin:0 0 30px; }
+  article h2{
+    font-size:19px; color:var(--navy-deep); margin:36px 0 14px;
+    border-left:4px solid var(--brass); padding-left:10px;
+  }
+  article p{ font-size:15px; color:#374151; margin:0 0 14px; }
+  article ol, article ul{ margin:0 0 16px; padding-left:22px; }
+  article li{ font-size:15px; color:#374151; margin-bottom:8px; }
+  article b{ color:var(--navy-deep); }
+  .step{
+    display:flex; gap:14px; margin-bottom:18px; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 18px;
+  }
+  .step .num{
+    flex-shrink:0; width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:bold;
+  }
+  .step .body p{ margin:0; }
+  .step .body b{ display:block; margin-bottom:4px; font-size:15px; }
+  table.ref-table{ width:100%; border-collapse:collapse; margin:0 0 18px; font-size:14px; }
+  table.ref-table th, table.ref-table td{ border:1px solid var(--line); padding:9px 12px; text-align:left; }
+  table.ref-table th{ background:var(--brass-soft); color:var(--navy-deep); font-family:var(--mono); font-size:12px; }
+  .pitfall{
+    margin:0 0 24px; padding:14px 16px; background:#FFFBEA; border-left:4px solid var(--brass);
+    font-size:14.5px; color:#5B4419;
+  }
+  .pitfall b{ color:#8A6416; }
+  .example{
+    background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px 22px; margin-bottom:20px;
+  }
+  .example .ex-label{
+    font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--navy);
+    text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .example .qtext{ font-size:15.5px; font-weight:bold; color:var(--navy-deep); margin-bottom:14px; }
+  .example ol.choices{ list-style:none; margin:0 0 6px; padding:0; display:flex; flex-direction:column; gap:8px; }
+  .example ol.choices li{ font-size:14.5px; color:#374151; }
+  .example ol.choices li b{ font-family:var(--mono); color:var(--brass); margin-right:8px; }
+  .example details{ margin-top:12px; }
+  .example summary{
+    cursor:pointer; font-family:var(--mono); font-size:13px; color:#fff; background:var(--navy);
+    display:inline-block; padding:8px 18px; border-radius:20px; font-weight:bold;
+  }
+  .example .answer{
+    margin-top:12px; padding:14px 16px; background:var(--correct-bg); border-left:4px solid var(--correct);
+    font-size:14.5px; color:#1f3d26;
+  }
+  .answer .tag{ font-family:var(--mono); font-weight:bold; color:var(--correct); display:block; margin-bottom:6px; }
+  .cta{
+    margin-top:40px; padding:26px 24px; background:var(--navy); border-radius:16px; text-align:center;
+  }
+  .cta p{ color:#fff; font-size:15px; margin:0 0 16px; }
+  .cta a{
+    display:inline-block; background:#fff; color:var(--navy); font-weight:bold; text-decoration:none;
+    padding:12px 26px; border-radius:10px; font-size:14.5px;
+  }
+  .related{ margin-top:32px; }
+  .related h2{ font-size:16px; }
+  .related ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+  .related a{ color:var(--navy); font-size:14.5px; text-decoration:none; font-weight:bold; }
+  .related a:hover{ text-decoration:underline; }
+  footer{ margin-top:50px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:#9CA3AF; }
+  footer a{ color:var(--navy); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="../index.html">← TOEIC Reading 学習ポータルに戻る</a>
+  <div class="eyebrow">Part 7 ／ Pattern I</div>
+  <h1>同義語問題</h1>
+  <p class="lead">The word ... is closest in meaning to という形式です。辞書的な意味を丸暗記するのではなく、その一文の中でどう使われているかという文脈上の意味を優先しましょう。</p>
+  <article>
+<h2>この問題タイプとは</h2>
+<p>address（対処する／住所）のように、1つの単語が複数の意味を持つ「多義語」がよく狙われます。<b>その単語だけを見て即答するのではなく、必ず前後の文脈を確認する</b>ことが重要です。</p>
+<h2>解法の3ステップ</h2>
+<div class="step"><div class="num">1</div><div class="body"><b>対象の単語を含む一文を見つける</b><p>設問で指定された単語が本文のどこにあるかを確認します。</p></div></div>
+<div class="step"><div class="num">2</div><div class="body"><b>前後の文脈から意味を推測する</b><p>その単語がどんな話題の中で使われているかを把握し、意味の方向性を絞ります。</p></div></div>
+<div class="step"><div class="num">3</div><div class="body"><b>選択肢を品詞・意味の両方で照合する</b><p>文脈に合う意味であり、かつ元の単語と同じ品詞・使い方ができる選択肢を選びます。</p></div></div>
+<div class="pitfall"><b>つまずきやすいポイント：</b>address（対処する／住所）のように複数の意味を持つ多義語は、文脈での使われ方を必ず確認してから判断しましょう。単語単体の意味だけで即答するのは危険です。</div>
+<h2>例題で確認しよう</h2>
+<div class="example"><span class="ex-label">例題 1</span><div class="clm-passage" style="background:#fff;border:1px solid var(--line);padding:14px 16px;margin-bottom:14px;font-size:14px;color:#374151;white-space:pre-wrap;">Due to the recent surge in online orders, our fulfillment center has been operating at full capacity. We are actively hiring additional staff to address this challenge and expect processing times to return to normal within two weeks.</div><div class="qtext">The word "surge" is closest in meaning to</div><ol class="choices"><li><b>(A)</b> decline</li><li><b>(B)</b> sudden increase</li><li><b>(C)</b> delay</li><li><b>(D)</b> shortage</li></ol><details><summary>解答・解説を見る</summary><div class="answer"><span class="tag">正解：(B)</span>sudden increase</div></details></div>
+<div class="pitfall" style="background:#EEF3FF;border-left-color:var(--navy);color:#1E3A5F;"><b style="color:var(--navy-deep);">解答までの思考プロセス：</b>surge という単語自体を知らなくても、直後に "operating at full capacity"（フル稼働）、"hiring additional staff"（増員）という記述が続くことから、注文が「急激に増えた」状況だと推測できます。この文脈だけで(B) sudden increase に絞り込めるのが同義語問題の解き方です。</div>
+<h2>まとめ</h2>
+<p>同義語問題は、単語帳的な暗記よりも「文脈から意味を推測する力」が試されます。分からない単語に出会っても焦らず、周囲の文からヒントを探しましょう。</p>
+  </article>
+
+  <div class="cta">
+    <p>実際に問題を解いて、この解き方を試してみましょう。</p>
+    <a href="../index.html#columns">学習コラム一覧に戻る →</a>
+  </div>
+
+  <footer>
+    <a href="../index.html">TOEIC Reading 学習ポータル</a> ｜ Part5〜7のパターン別演習・解法コラム・模擬テストを無料で提供しています。
+  </footer>
+</div>
+</body>
+</html>

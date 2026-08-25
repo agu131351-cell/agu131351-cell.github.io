@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC Part5 時制・態・数の一致の解き方｜文法問題を得点源にする | TOEIC Reading 学習ポータル</title>
+<meta name="description" content="TOEIC Part5の時制・態・主語と動詞の一致問題を解くための着眼点を、例題2問つきで解説します。">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="TOEIC Reading 学習ポータル">
+<meta property="og:title" content="TOEIC Part5 時制・態・数の一致の解き方｜文法問題を得点源にする | TOEIC Reading 学習ポータル">
+<meta property="og:description" content="TOEIC Part5の時制・態・主語と動詞の一致問題を解くための着眼点を、例題2問つきで解説します。">
+<meta property="og:url" content="https://agu131351-cell.github.io/columns/tense-voice.html">
+<meta property="og:image" content="https://agu131351-cell.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://agu131351-cell.github.io/columns/tense-voice.html">
+<style>
+  *{box-sizing:border-box;}
+  :root{
+    --paper:#F4F7FC; --ink:#1E293B; --navy:#2563EB; --navy-deep:#1E3A8A;
+    --brass:#F5A623; --brass-soft:#FEF3C7; --correct:#2F6B3E; --correct-bg:#E7F2E5;
+    --line:#DDE5F2; --mono:'Courier New',Courier,monospace;
+  }
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.75;
+  }
+  .wrap{ max-width:760px; margin:0 auto; padding:32px 20px 80px; }
+  .back-link{
+    display:inline-block; font-size:13.5px; color:var(--navy); text-decoration:none;
+    margin-bottom:22px; font-weight:bold;
+  }
+  .back-link:hover{ text-decoration:underline; }
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:2px; color:var(--navy);
+    text-transform:uppercase; margin-bottom:10px;
+  }
+  h1{ font-size:28px; color:var(--navy-deep); margin:0 0 14px; line-height:1.4; }
+  .lead{ font-size:15.5px; color:#4B5563; margin:0 0 30px; }
+  article h2{
+    font-size:19px; color:var(--navy-deep); margin:36px 0 14px;
+    border-left:4px solid var(--brass); padding-left:10px;
+  }
+  article p{ font-size:15px; color:#374151; margin:0 0 14px; }
+  article ol, article ul{ margin:0 0 16px; padding-left:22px; }
+  article li{ font-size:15px; color:#374151; margin-bottom:8px; }
+  article b{ color:var(--navy-deep); }
+  .step{
+    display:flex; gap:14px; margin-bottom:18px; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:16px 18px;
+  }
+  .step .num{
+    flex-shrink:0; width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:bold;
+  }
+  .step .body p{ margin:0; }
+  .step .body b{ display:block; margin-bottom:4px; font-size:15px; }
+  table.ref-table{ width:100%; border-collapse:collapse; margin:0 0 18px; font-size:14px; }
+  table.ref-table th, table.ref-table td{ border:1px solid var(--line); padding:9px 12px; text-align:left; }
+  table.ref-table th{ background:var(--brass-soft); color:var(--navy-deep); font-family:var(--mono); font-size:12px; }
+  .pitfall{
+    margin:0 0 24px; padding:14px 16px; background:#FFFBEA; border-left:4px solid var(--brass);
+    font-size:14.5px; color:#5B4419;
+  }
+  .pitfall b{ color:#8A6416; }
+  .example{
+    background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px 22px; margin-bottom:20px;
+  }
+  .example .ex-label{
+    font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--navy);
+    text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .example .qtext{ font-size:15.5px; font-weight:bold; color:var(--navy-deep); margin-bottom:14px; }
+  .example ol.choices{ list-style:none; margin:0 0 6px; padding:0; display:flex; flex-direction:column; gap:8px; }
+  .example ol.choices li{ font-size:14.5px; color:#374151; }
+  .example ol.choices li b{ font-family:var(--mono); color:var(--brass); margin-right:8px; }
+  .example details{ margin-top:12px; }
+  .example summary{
+    cursor:pointer; font-family:var(--mono); font-size:13px; color:#fff; background:var(--navy);
+    display:inline-block; padding:8px 18px; border-radius:20px; font-weight:bold;
+  }
+  .example .answer{
+    margin-top:12px; padding:14px 16px; background:var(--correct-bg); border-left:4px solid var(--correct);
+    font-size:14.5px; color:#1f3d26;
+  }
+  .answer .tag{ font-family:var(--mono); font-weight:bold; color:var(--correct); display:block; margin-bottom:6px; }
+  .cta{
+    margin-top:40px; padding:26px 24px; background:var(--navy); border-radius:16px; text-align:center;
+  }
+  .cta p{ color:#fff; font-size:15px; margin:0 0 16px; }
+  .cta a{
+    display:inline-block; background:#fff; color:var(--navy); font-weight:bold; text-decoration:none;
+    padding:12px 26px; border-radius:10px; font-size:14.5px;
+  }
+  .related{ margin-top:32px; }
+  .related h2{ font-size:16px; }
+  .related ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+  .related a{ color:var(--navy); font-size:14.5px; text-decoration:none; font-weight:bold; }
+  .related a:hover{ text-decoration:underline; }
+  footer{ margin-top:50px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:#9CA3AF; }
+  footer a{ color:var(--navy); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="../index.html">← TOEIC Reading 学習ポータルに戻る</a>
+  <div class="eyebrow">Part 5 ／ Pattern C</div>
+  <h1>時制・態・数の一致 ― 文法問題の解法</h1>
+  <p class="lead">時制や能動・受動、主語と動詞の一致が問われる問題です。文中の「時を示す語句」と「主語が動作をする側か受ける側か」の2点を必ず確認しましょう。</p>
+  <article>
+<h2>この問題タイプとは</h2>
+<p>一見複雑に見えますが、確認すべきポイントは限られています。<b>「いつの話か」と「主語は動作をする側か、される側か」</b>の2点さえ押さえれば、機械的に正解を絞り込めます。</p>
+<h2>解法の3ステップ</h2>
+<div class="step"><div class="num">1</div><div class="body"><b>時を示す語句を探す</b><p>yesterday, next month, since ~, by the time ~, for the past ~ years など、時制を決定づける語句を文中から探します。空所の近くにあるとは限りません。</p></div></div>
+<div class="step"><div class="num">2</div><div class="body"><b>態（能動・受動）を判断する</b><p>主語が「動作をする側」なら能動態、「動作を受ける側」なら受動態（be + 過去分詞）です。</p></div></div>
+<div class="step"><div class="num">3</div><div class="body"><b>数の一致を確認する</b><p>Each of ~／Neither A nor B のような主語は単数扱い、A and B は複数扱いになるなど、主語と動詞の数が一致しているか最終チェックします。</p></div></div>
+<div class="pitfall"><b>つまずきやすいポイント：</b>時を示す語句が空所からかなり離れた場所にあることも多いため、空所の前後だけでなく文全体を読む習慣をつけましょう。by the time ～／since ～のような表現は、未来完了・現在完了のどちらと結びつくか紛らわしいので要注意です。</div>
+<h2>例題で確認しよう</h2>
+<div class="example"><span class="ex-label">例題 1</span><div class="qtext">By next Friday, the design team ------- the prototype for over two months.</div><ol class="choices"><li><b>(A)</b> tests</li><li><b>(B)</b> will have been testing</li><li><b>(C)</b> tested</li><li><b>(D)</b> is testing</li></ol><details><summary>解答・解説を見る</summary><div class="answer"><span class="tag">正解：(B) will have been testing)</span>for over two monthsという継続期間と、By next Fridayという未来の基準点が同時に示されているため、未来完了進行形（will have been + 現在分詞）が適切です。</div></details></div>
+<div class="example"><span class="ex-label">例題 2</span><div class="qtext">The new policy ------- by the management team before it was announced to all employees.</div><ol class="choices"><li><b>(A)</b> reviewed</li><li><b>(B)</b> had been reviewed</li><li><b>(C)</b> reviews</li><li><b>(D)</b> reviewing</li></ol><details><summary>解答・解説を見る</summary><div class="answer"><span class="tag">正解：(B) had been reviewed)</span>「発表される前に見直された」という、過去のある時点（発表）よりさらに前の動作を表すため、過去完了形が必要です。主語 the new policy は「見直される側」なので受動態（be + 過去分詞）と組み合わせた had been reviewed が正解です。</div></details></div>
+<h2>まとめ</h2>
+<p>時制・態の問題は感覚ではなく、時を示す語句と主語の関係を機械的にチェックすることで安定して正解できます。焦って空所の直前だけを見ず、文全体から手がかりを探す癖をつけましょう。</p>
+  </article>
+
+  <div class="cta">
+    <p>実際に問題を解いて、この解き方を試してみましょう。</p>
+    <a href="../index.html#columns">学習コラム一覧に戻る →</a>
+  </div>
+
+  <footer>
+    <a href="../index.html">TOEIC Reading 学習ポータル</a> ｜ Part5〜7のパターン別演習・解法コラム・模擬テストを無料で提供しています。
+  </footer>
+</div>
+</body>
+</html>
