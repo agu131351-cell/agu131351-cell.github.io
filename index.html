@@ -567,6 +567,32 @@
   .home-card-highlight p{ color:rgba(255,255,255,0.85); }
   .home-card-highlight .home-card-count{ background:rgba(255,255,255,0.22); color:#fff; }
 
+  .plan-section{ margin:36px 0 28px; }
+  .plan-title{ font-size:17px; color:var(--navy-deep); margin:0 0 6px; }
+  .plan-sub{ font-size:13.5px; color:#6B7280; margin:0 0 22px; }
+  .plan-track{ display:flex; flex-direction:column; gap:0; }
+  .plan-week{ display:flex; gap:16px; position:relative; }
+  .plan-week .plan-line{
+    display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:36px;
+  }
+  .plan-week .plan-dot{
+    width:36px; height:36px; border-radius:50%; background:var(--navy); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:bold;
+    font-size:13px; flex-shrink:0;
+  }
+  .plan-week .plan-connector{ flex:1; width:2px; background:var(--line); margin:4px 0; min-height:20px; }
+  .plan-week:last-child .plan-connector{ display:none; }
+  .plan-week .plan-body{ padding-bottom:26px; flex:1; }
+  .plan-week .plan-when{
+    font-family:var(--mono); font-size:11px; letter-spacing:1px; color:var(--navy); text-transform:uppercase; margin-bottom:4px;
+  }
+  .plan-week h4{ margin:0 0 6px; font-size:15.5px; color:var(--navy-deep); }
+  .plan-week p{ margin:0; font-size:13.5px; color:#4B5563; }
+  .plan-week .plan-links{ margin-top:8px; display:flex; gap:10px; flex-wrap:wrap; }
+  .plan-week .plan-links a{ font-size:12.5px; color:var(--navy); font-weight:bold; text-decoration:none; }
+  .plan-week .plan-links a:hover{ text-decoration:underline; }
+  .plan-week.plan-repeat .plan-dot{ background:var(--brass); }
+
   /* ===== Added: Mock test ===== */
   .mock-info-grid{ display:flex; gap:12px; margin:20px 0 26px; flex-wrap:wrap; }
   .mock-info-card{
@@ -778,6 +804,49 @@
       <h3>総合演習（ミニ模試）</h3>
       <p>演習問題とは別の41問を使い、本番に近い時間制限形式で実力を試します。</p>
       <span class="home-card-count">41問・35分</span>
+    </div>
+  </div>
+
+  <div class="plan-section">
+    <h3 class="plan-title">学習の進め方（4週間モデル）</h3>
+    <p class="plan-sub">迷ったらこの順番で進めてください。1〜3週目は自分のペースで繰り返してOKです。</p>
+    <div class="plan-track">
+      <div class="plan-week">
+        <div class="plan-line"><div class="plan-dot">1</div><div class="plan-connector"></div></div>
+        <div class="plan-body">
+          <div class="plan-when">1週目</div>
+          <h4>リーディング演習を一周する</h4>
+          <p>Part5〜7の全13パターンを一通り解いてみましょう。正解・不正解は気にせず、まず「自分がどのパターンで間違えやすいか」を把握するのが目的です。</p>
+          <div class="plan-links"><a data-view="reading" href="#reading">→ リーディング演習へ</a></div>
+        </div>
+      </div>
+      <div class="plan-week">
+        <div class="plan-line"><div class="plan-dot">2</div><div class="plan-connector"></div></div>
+        <div class="plan-body">
+          <div class="plan-when">2週目</div>
+          <h4>学習コラムで解き方を理解する</h4>
+          <p>1週目で苦手だったパターンを中心に、コラムで解き方の型を確認します。理解したら、同じパターンの演習に戻って解き直しましょう。</p>
+          <div class="plan-links"><a data-view="columns" href="#columns">→ 学習コラムへ</a></div>
+        </div>
+      </div>
+      <div class="plan-week plan-repeat">
+        <div class="plan-line"><div class="plan-dot">3</div><div class="plan-connector"></div></div>
+        <div class="plan-body">
+          <div class="plan-when">3週目</div>
+          <h4>演習を繰り返す＋単語をインプット</h4>
+          <p>苦手パターンの演習を繰り返しながら、単語帳（金のフレーズなど）を並行して進めましょう。演習と単語学習を分けず、同じ期間に並走させるのがコツです。</p>
+          <div class="plan-links"><a data-view="materials" href="#materials">→ おすすめ教材へ</a></div>
+        </div>
+      </div>
+      <div class="plan-week">
+        <div class="plan-line"><div class="plan-dot">4</div></div>
+        <div class="plan-body">
+          <div class="plan-when">4週目</div>
+          <h4>総合演習（ミニ模試）で腕試し</h4>
+          <p>本番に近い形式で実力を確認します。うまくいかなかったパートがあれば、1〜3週目に戻って重点的に復習しましょう。この4週間を1サイクルとして繰り返すのがおすすめです。</p>
+          <div class="plan-links"><a data-view="mock" href="#mock">→ 総合演習へ</a></div>
+        </div>
+      </div>
     </div>
   </div>
 
